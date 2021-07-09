@@ -17,13 +17,15 @@ class MyJob: AbstractJob(
 }
 
 fun main(args: Array<String>) {
-    val scheduler = createScheduler {}
-    scheduler.schedule(MyJob()) // using classes to register
+    val scheduler = Scheduler()
+    scheduler.schedule(MyJob(), start = true) // using classes to register
     
     // using DSL for building schedulers
     scheduler.schedule {
         name = "some job name"
         expression = "another expression to use"
+        start = true
+        
         executor = {
             println("I am working :D")
         }
