@@ -22,7 +22,9 @@
 
 package dev.floofy.haru.abstractions
 
+import com.cronutils.model.time.ExecutionTime
 import kotlinx.coroutines.Job
+import java.time.ZonedDateTime
 
 /**
  * Represents an abstraction for constructing jobs. This is the Java-style
@@ -39,8 +41,36 @@ abstract class AbstractJob(val name: String, val expression: String) {
     var coroutineJob: Job? = null
 
     /**
+     * Returns the execution time for this job, returns `null` if it hasn't
+     * been scheduled.
+     */
+    var executionTime: ExecutionTime? = null
+
+    /**
+     * Returns the next delay in milliseconds, returns `null` if it hasn't
+     * been scheduled.
+     */
+    var nextDelay: Long? = null
+
+    /**
      * Executes this [AbstractJob] in a separate thread-pool.
      * @param ctx The context to use when executing.
      */
     abstract suspend fun execute()
+
+    /**
+     * Updates the next delay based off the
+     */
+    fun getAndUpdateNextDelay(): Long {
+        val delay = executionTime!!
+            .nextExecution(ZonedDateTime.now())
+            .orElse(null)
+            ?.toInstant()
+            ?.toEpochMilli()
+
+        val now = ZonedDateTime.now().toInstant().toEpochMilli()
+        nextDelay = (delay ?: ZonedDateTime.now().plusSeconds(20L).toInstant().toEpochMilli()) - now
+
+        return nextDelay!!
+    }
 }

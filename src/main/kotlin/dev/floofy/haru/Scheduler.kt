@@ -24,6 +24,7 @@ package dev.floofy.haru
 
 import com.cronutils.model.CronType
 import com.cronutils.model.definition.CronDefinitionBuilder
+import com.cronutils.model.time.ExecutionTime
 import com.cronutils.parser.CronParser
 import dev.floofy.haru.abstractions.AbstractJob
 import dev.floofy.haru.builders.ScheduleBuilder
@@ -49,6 +50,8 @@ class Scheduler {
      */
     fun schedule(job: AbstractJob, start: Boolean = true): Scheduler {
         val coroutineJob = scope.launch(job, cron)
+
+        job.executionTime = ExecutionTime.forCron(cron.parse(job.expression))
         job.coroutineJob = coroutineJob
 
         if (start)

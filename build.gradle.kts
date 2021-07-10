@@ -20,17 +20,14 @@
  * SOFTWARE.
  */
 
-import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
 import java.text.SimpleDateFormat
 import java.util.Date
 
 plugins {
-    id("com.github.johnrengelman.shadow") version "7.0.0"
     id("com.diffplug.spotless") version "5.14.0"
     id("org.jetbrains.dokka") version "1.4.30"
     kotlin("jvm") version "1.5.10"
     `maven-publish`
-    application
 }
 
 group = "dev.floofy"
@@ -38,6 +35,7 @@ version = "1.0.0"
 
 repositories {
     mavenCentral()
+    jcenter()
 }
 
 dependencies {
@@ -64,14 +62,6 @@ tasks.register("generateMetadata") {
     file("$path/metadata.properties").writeText("""built.at = ${formatter.format(date)}
 app.version = $version
 """.trimIndent())
-}
-
-application {
-    mainClass.set("dev.floofy.haru.MainKt")
-    java {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
-    }
 }
 
 spotless {
@@ -113,18 +103,6 @@ tasks {
 
                 jdkVersion.set(11)
             }
-        }
-    }
-
-    named<ShadowJar>("shadowJar") {
-        archiveFileName.set("Haru.jar")
-        mergeServiceFiles()
-
-        manifest {
-            attributes(mapOf(
-                "Manifest-Version" to "1.0.0",
-                "Main-Class" to "dev.floofy.haru.MainKt"
-            ))
         }
     }
 }
@@ -194,8 +172,8 @@ publishing {
     repositories {
         maven(url = "s3://maven.floofy.dev/repo/releases") {
             credentials(AwsCredentials::class.java) {
-                accessKey = System.getenv("S3_ACCESS_KEY") ?: ""
-                secretKey = System.getenv("S3_SECRET_KEY") ?: ""
+                accessKey = System.getenv("S3_ACCESS_KEY")
+                secretKey = System.getenv("S3_SECRET_KEY")
             }
         }
     }

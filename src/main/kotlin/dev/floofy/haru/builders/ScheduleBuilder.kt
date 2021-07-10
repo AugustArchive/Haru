@@ -22,6 +22,8 @@
 
 package dev.floofy.haru.builders
 
+import java.util.*
+
 typealias ScheduleExecutor = suspend () -> Unit
 
 /**
@@ -30,6 +32,7 @@ typealias ScheduleExecutor = suspend () -> Unit
 class ScheduleBuilder {
     var expression: String = ""
     var executor: ScheduleExecutor = {}
+    var timezone: TimeZone = TimeZone.getDefault()
     var start: Boolean = true
     var name: String = ""
 }
