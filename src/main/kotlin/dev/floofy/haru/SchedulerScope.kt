@@ -51,7 +51,6 @@ class SchedulerScope: CoroutineScope {
                 job.execute()
 
                 val nextDelay = job.getAndUpdateNextDelay()
-                println(nextDelay)
                 delay(nextDelay)
             }
         }

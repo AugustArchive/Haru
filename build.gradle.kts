@@ -32,7 +32,7 @@ plugins {
 }
 
 group = "dev.floofy"
-version = "1.0.0"
+version = "1.0.1"
 
 repositories {
     mavenCentral()
@@ -137,7 +137,7 @@ publishing {
             from(components["kotlin"])
             groupId = "dev.floofy.haru"
             artifactId = "Haru"
-            version = "1.0.0"
+            version = "1.0.1"
 
             artifact(sourcesJar.get())
             artifact(dokkaJar.get())
