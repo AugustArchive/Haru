@@ -23,8 +23,8 @@
 package dev.floofy.haru.abstractions
 
 import com.cronutils.model.time.ExecutionTime
-import kotlinx.coroutines.Job
 import java.time.ZonedDateTime
+import kotlinx.coroutines.Job
 
 /**
  * Represents an abstraction for constructing jobs. This is the Java-style

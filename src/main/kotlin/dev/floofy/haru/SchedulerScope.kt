@@ -26,12 +26,12 @@ import com.cronutils.model.time.ExecutionTime
 import com.cronutils.parser.CronParser
 import dev.floofy.haru.abstractions.AbstractJob
 import dev.floofy.haru.internal.HaruThreadFactory
+import java.time.Duration
 import java.time.ZonedDateTime
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 import kotlin.coroutines.CoroutineContext
 import kotlinx.coroutines.*
-import java.time.Duration
 
 class SchedulerScope: CoroutineScope {
     private val executor: ExecutorService = Executors.newCachedThreadPool(HaruThreadFactory())
