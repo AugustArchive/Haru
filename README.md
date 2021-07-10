@@ -44,7 +44,7 @@ I'd say around ~3 hours :)
 ## Installation
 > Documentation: https://haru.floofy.dev
 >
-> Version: 1.0.0
+> Version: 1.0.1
 
 ## Gradle
 ### Kotlin DSL
