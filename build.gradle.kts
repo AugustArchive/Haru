@@ -92,6 +92,8 @@ tasks {
     }
 
     dokkaHtml {
+        outputDirectory.set(file("${rootProject.projectDir}/docs"))
+
         dokkaSourceSets {
             configureEach {
                 platform.set(org.jetbrains.dokka.Platform.jvm)
