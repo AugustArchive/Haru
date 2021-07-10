@@ -1,5 +1,6 @@
 name: Deploy to Maven repository
 on:
+  workflow_dispatch:
   release:
     types: [published]
 
