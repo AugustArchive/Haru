@@ -159,4 +159,4 @@ gradle-app.setting
 
 # other
 src/main/resources/metadata.properties
-.access-keys
+gradle/publishing.properties

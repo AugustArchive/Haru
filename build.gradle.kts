@@ -21,6 +21,7 @@
  */
 
 import java.text.SimpleDateFormat
+import java.util.Properties
 import java.util.Date
 
 plugins {
@@ -109,6 +110,13 @@ tasks {
     }
 }
 
+
+val publishingProps = try {
+    Properties().apply { load(file("${rootProject.projectDir}/gradle/publishing.properties").reader()) }
+} catch(e: Exception) {
+    Properties()
+}
+
 val sourcesJar by tasks.registering(Jar::class) {
     archiveClassifier.set("sources")
     from(sourceSets.main.get().allSource)
@@ -174,8 +182,8 @@ publishing {
     repositories {
         maven(url = "s3://maven.floofy.dev/repo/releases") {
             credentials(AwsCredentials::class.java) {
-                accessKey = System.getenv("S3_ACCESS_KEY")
-                secretKey = System.getenv("S3_SECRET_KEY")
+                accessKey = System.getProperty("s3.accessKey")
+                secretKey = System.getProperty("s3.secretKey")
             }
         }
     }
