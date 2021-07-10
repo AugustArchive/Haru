@@ -36,6 +36,11 @@ fun main(args: Array<String>) {
 ## Will this a multiplatform library?
 I don't know, probably...
 
+## How long did it take?
+I'd say around ~3 hours :)
+
+![proof](https://cute.floofy.dev/images/75255c28.png)
+
 ## Installation
 > Documentation: https://haru.floofy.dev
 >
