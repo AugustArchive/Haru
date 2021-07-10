@@ -182,8 +182,8 @@ publishing {
     repositories {
         maven(url = "s3://maven.floofy.dev/repo/releases") {
             credentials(AwsCredentials::class.java) {
-                accessKey = System.getProperty("s3.accessKey")
-                secretKey = System.getProperty("s3.secretKey")
+                accessKey = publishingProps.getProperty("s3.accessKey") ?: ""
+                secretKey = publishingProps.getProperty("s3.secretKey") ?: ""
             }
         }
     }
