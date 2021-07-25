@@ -33,22 +33,27 @@ import java.util.concurrent.Executors
 import kotlin.coroutines.CoroutineContext
 import kotlinx.coroutines.*
 
-class SchedulerScope: CoroutineScope {
+internal class SchedulerScope(private val options: Scheduler.Options): CoroutineScope {
     private val executor: ExecutorService = Executors.newCachedThreadPool(HaruThreadFactory())
     private val job = Job()
 
     override val coroutineContext: CoroutineContext =
         job + executor.asCoroutineDispatcher()
 
-    fun launch(job: AbstractJob, parser: CronParser): Job {
+    fun launch(job: AbstractJob, parser: CronParser, expression: String? = null): Job {
         val now = ZonedDateTime.now()
-        val nextSchedule = ExecutionTime.forCron(parser.parse(job.expression)).nextExecution(now).get()
+        val nextSchedule = ExecutionTime.forCron(parser.parse(expression ?: job.expression)).nextExecution(now).get()
         val delayInMillis = Duration.between(now, nextSchedule)
 
         return launch(start = CoroutineStart.LAZY) {
             delay(delayInMillis.toMillis())
             while (isActive) {
-                job.execute()
+                try {
+                    job.execute()
+                } catch (e: Exception) {
+                    job.jobOnError(e)
+                    options.errorHandler?.invoke(e)
+                }
 
                 val nextDelay = job.getAndUpdateNextDelay()
                 delay(nextDelay)

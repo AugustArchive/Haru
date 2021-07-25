@@ -54,12 +54,19 @@ abstract class AbstractJob(val name: String, val expression: String) {
 
     /**
      * Executes this [AbstractJob] in a separate thread-pool.
-     * @param ctx The context to use when executing.
      */
     abstract suspend fun execute()
 
     /**
-     * Updates the next delay based off the
+     * Execute this function when this specific job errored out.
+     * @param throwable The error that occured
+     */
+    fun jobOnError(throwable: Throwable) {
+        // no-op operation
+    }
+
+    /**
+     * Updates the next delay and returns when the next delay is
      */
     fun getAndUpdateNextDelay(): Long {
         val delay = executionTime!!

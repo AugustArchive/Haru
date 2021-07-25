@@ -35,11 +35,21 @@ import kotlinx.coroutines.*
 
 /**
  * Represents a [Scheduler] class to handle scheduling within this project.
+ * @param options Any additional options
  */
-class Scheduler {
-    private val scope: SchedulerScope = SchedulerScope()
+class Scheduler(private val options: Options) {
+    private val scope: SchedulerScope = SchedulerScope(options)
     private val jobs: MutableList<AbstractJob> = mutableListOf()
     private val cron: CronParser = CronParser(CronDefinitionBuilder.instanceDefinitionFor(CronType.UNIX))
+
+    private val AT_EXPRESSIONS: Map<String, String> = mapOf(
+        "@hourly" to "0 * * * *",
+        "@yearly" to "0 0 1 1 *",
+        "@annually" to "0 0 1 1 *",
+        "@monthly" to "0 0 1 * *",
+        "@weekly" to "0 0 * * 0",
+        "@hourly" to "0 * * * *"
+    )
 
     /**
      * Schedules the job and if [start] is true, starts it
@@ -49,9 +59,13 @@ class Scheduler {
      * @param job The job to use
      */
     fun schedule(job: AbstractJob, start: Boolean = true): Scheduler {
-        val coroutineJob = scope.launch(job, cron)
+        val useThis = if (AT_EXPRESSIONS.containsKey(job.expression))
+            AT_EXPRESSIONS[job.expression]
+        else
+            null
 
-        job.executionTime = ExecutionTime.forCron(cron.parse(job.expression))
+        val coroutineJob = scope.launch(job, cron, useThis)
+        job.executionTime = ExecutionTime.forCron(cron.parse(useThis ?: job.expression))
         job.coroutineJob = coroutineJob
 
         if (start)
@@ -105,4 +119,15 @@ class Scheduler {
 
         return this
     }
+
+    /**
+     * Any additional options to extend this [Scheduler]
+     */
+    data class Options(
+        /**
+         * Returns a error handler for all scheduled jobs if that specific job doesn't
+         * have a `jobOnError` executor.
+         */
+        val errorHandler: ((Throwable) -> Unit)? = null
+    )
 }

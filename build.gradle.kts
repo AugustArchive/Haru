@@ -31,8 +31,9 @@ plugins {
     `maven-publish`
 }
 
+val current = "1.1.0"
 group = "dev.floofy"
-version = "1.0.1"
+version = current
 
 repositories {
     mavenCentral()
@@ -42,7 +43,6 @@ repositories {
 dependencies {
     // Kotlin libraries
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.0")
-    implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.2.1")
     api("org.jetbrains.kotlinx:kotlinx-coroutines-reactor:1.5.0")
     implementation(kotlin("stdlib", "1.5.10"))
 
@@ -137,7 +137,7 @@ publishing {
             from(components["kotlin"])
             groupId = "dev.floofy.haru"
             artifactId = "Haru"
-            version = "1.0.1"
+            version = current
 
             artifact(sourcesJar.get())
             artifact(dokkaJar.get())
