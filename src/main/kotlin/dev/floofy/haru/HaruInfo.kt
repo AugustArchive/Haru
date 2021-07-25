@@ -24,8 +24,18 @@ package dev.floofy.haru
 
 import java.util.*
 
+/**
+ * Represents the versioning information.
+ */
 object HaruInfo {
+    /**
+     * Returns a date on when the library was built at.
+     */
     val BUILT_AT: String
+
+    /**
+     * The current version
+     */
     val VERSION: String
 
     init {

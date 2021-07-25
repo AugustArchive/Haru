@@ -11,9 +11,6 @@ $dokka.location:dev.floofy.haru.abstractions/AbstractJob/getAndUpdateNextDelay/#
 $dokka.location:dev.floofy.haru.abstractions/AbstractJob/jobOnError/#kotlin.Throwable/PointingToDeclaration/-haru/dev.floofy.haru.abstractions/-abstract-job/job-on-error.html
 $dokka.location:dev.floofy.haru.abstractions/AbstractJob/name/#/PointingToDeclaration/-haru/dev.floofy.haru.abstractions/-abstract-job/name.html
 $dokka.location:dev.floofy.haru.abstractions/AbstractJob/nextDelay/#/PointingToDeclaration/-haru/dev.floofy.haru.abstractions/-abstract-job/next-delay.html
-$dokka.location:dev.floofy.haru.annotations////PointingToDeclaration/-haru/dev.floofy.haru.annotations/index.html
-$dokka.location:dev.floofy.haru.annotations/HaruDslMarker///PointingToDeclaration/-haru/dev.floofy.haru.annotations/-haru-dsl-marker/index.html
-$dokka.location:dev.floofy.haru.annotations/HaruDslMarker/HaruDslMarker/#/PointingToDeclaration/-haru/dev.floofy.haru.annotations/-haru-dsl-marker/-haru-dsl-marker.html
 $dokka.location:dev.floofy.haru.builders////PointingToDeclaration/-haru/dev.floofy.haru.builders/index.html
 $dokka.location:dev.floofy.haru.builders/ScheduleBuilder///PointingToDeclaration/-haru/dev.floofy.haru.builders/-schedule-builder/index.html
 $dokka.location:dev.floofy.haru.builders/ScheduleBuilder/ScheduleBuilder/#/PointingToDeclaration/-haru/dev.floofy.haru.builders/-schedule-builder/-schedule-builder.html
@@ -21,20 +18,18 @@ $dokka.location:dev.floofy.haru.builders/ScheduleBuilder/executor/#/PointingToDe
 $dokka.location:dev.floofy.haru.builders/ScheduleBuilder/expression/#/PointingToDeclaration/-haru/dev.floofy.haru.builders/-schedule-builder/expression.html
 $dokka.location:dev.floofy.haru.builders/ScheduleBuilder/name/#/PointingToDeclaration/-haru/dev.floofy.haru.builders/-schedule-builder/name.html
 $dokka.location:dev.floofy.haru.builders/ScheduleBuilder/start/#/PointingToDeclaration/-haru/dev.floofy.haru.builders/-schedule-builder/start.html
-$dokka.location:dev.floofy.haru.builders/ScheduleBuilder/timezone/#/PointingToDeclaration/-haru/dev.floofy.haru.builders/-schedule-builder/timezone.html
 $dokka.location:dev.floofy.haru.exceptions////PointingToDeclaration/-haru/dev.floofy.haru.exceptions/index.html
 $dokka.location:dev.floofy.haru.exceptions/UnknownJobException///PointingToDeclaration/-haru/dev.floofy.haru.exceptions/-unknown-job-exception/index.html
 $dokka.location:dev.floofy.haru.exceptions/UnknownJobException/UnknownJobException/#kotlin.String/PointingToDeclaration/-haru/dev.floofy.haru.exceptions/-unknown-job-exception/-unknown-job-exception.html
 $dokka.location:dev.floofy.haru.extensions////PointingToDeclaration/-haru/dev.floofy.haru.extensions/index.html
 $dokka.location:dev.floofy.haru.extensions//plus/kotlin.collections.MutableList[TypeParam(bounds=[kotlin.Any?])]#kotlin.collections.List[TypeParam(bounds=[kotlin.Any?])]/PointingToDeclaration/-haru/dev.floofy.haru.extensions/plus.html
-$dokka.location:dev.floofy.haru.internal////PointingToDeclaration/-haru/dev.floofy.haru.internal/index.html
-$dokka.location:dev.floofy.haru.internal/HaruThreadFactory///PointingToDeclaration/-haru/dev.floofy.haru.internal/-haru-thread-factory/index.html
-$dokka.location:dev.floofy.haru.internal/HaruThreadFactory/HaruThreadFactory/#/PointingToDeclaration/-haru/dev.floofy.haru.internal/-haru-thread-factory/-haru-thread-factory.html
-$dokka.location:dev.floofy.haru.internal/HaruThreadFactory/newThread/#java.lang.Runnable/PointingToDeclaration/-haru/dev.floofy.haru.internal/-haru-thread-factory/new-thread.html
 $dokka.location:dev.floofy.haru////PointingToDeclaration/-haru/dev.floofy.haru/index.html
+$dokka.location:dev.floofy.haru//Scheduler/#kotlin.Function1[dev.floofy.haru.Scheduler.Options,kotlin.Unit]/PointingToDeclaration/-haru/dev.floofy.haru/-scheduler.html
 $dokka.location:dev.floofy.haru/HaruInfo///PointingToDeclaration/-haru/dev.floofy.haru/-haru-info/index.html
 $dokka.location:dev.floofy.haru/HaruInfo/BUILT_AT/#/PointingToDeclaration/-haru/dev.floofy.haru/-haru-info/-b-u-i-l-t_-a-t.html
 $dokka.location:dev.floofy.haru/HaruInfo/VERSION/#/PointingToDeclaration/-haru/dev.floofy.haru/-haru-info/-v-e-r-s-i-o-n.html
+$dokka.location:dev.floofy.haru/Scheduler.Options.Companion///PointingToDeclaration/-haru/dev.floofy.haru/-scheduler/-options/-companion/index.html
+$dokka.location:dev.floofy.haru/Scheduler.Options.Companion/Default/#/PointingToDeclaration/-haru/dev.floofy.haru/-scheduler/-options/-companion/-default.html
 $dokka.location:dev.floofy.haru/Scheduler.Options///PointingToDeclaration/-haru/dev.floofy.haru/-scheduler/-options/index.html
 $dokka.location:dev.floofy.haru/Scheduler.Options/Options/#kotlin.Function1[kotlin.Throwable,kotlin.Unit]?/PointingToDeclaration/-haru/dev.floofy.haru/-scheduler/-options/-options.html
 $dokka.location:dev.floofy.haru/Scheduler.Options/errorHandler/#/PointingToDeclaration/-haru/dev.floofy.haru/-scheduler/-options/error-handler.html
@@ -47,9 +42,7 @@ $dokka.location:dev.floofy.haru/Scheduler/unschedule/#dev.floofy.haru.abstractio
 $dokka.location:dev.floofy.haru/Scheduler/unschedule/#kotlin.String/PointingToDeclaration/-haru/dev.floofy.haru/-scheduler/unschedule.html
 dev.floofy.haru
 dev.floofy.haru.abstractions
-dev.floofy.haru.annotations
 dev.floofy.haru.builders
 dev.floofy.haru.exceptions
 dev.floofy.haru.extensions
-dev.floofy.haru.internal
 

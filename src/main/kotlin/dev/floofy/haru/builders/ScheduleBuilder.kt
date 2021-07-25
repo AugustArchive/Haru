@@ -22,17 +22,33 @@
 
 package dev.floofy.haru.builders
 
-import java.util.*
-
-typealias ScheduleExecutor = suspend () -> Unit
+/**
+ * Type-alias to indicate a schedule executor
+ */
+internal typealias ScheduleExecutor = suspend () -> Unit
 
 /**
  * Represents a builder class to construct [AbstractJob][dev.floofy.haru.abstractions.AbstractJob]s.
  */
 class ScheduleBuilder {
+    /**
+     * The expression to use when scheduling this job. This supports
+     * full Unix CRON expressions like `@hourly`!
+     */
     var expression: String = ""
+
+    /**
+     * Returns the executor to execute this scheduler.
+     */
     var executor: ScheduleExecutor = {}
-    var timezone: TimeZone = TimeZone.getDefault()
+
+    /**
+     * If the job should be started automatically or not.
+     */
     var start: Boolean = true
+
+    /**
+     * The name of the job
+     */
     var name: String = ""
 }

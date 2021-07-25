@@ -25,7 +25,7 @@ package dev.floofy.haru.internal
 import java.util.concurrent.ThreadFactory
 import java.util.concurrent.atomic.AtomicInteger
 
-class HaruThreadFactory: ThreadFactory {
+internal class HaruThreadFactory: ThreadFactory {
     private val counter = AtomicInteger(1)
     private val group: ThreadGroup
 

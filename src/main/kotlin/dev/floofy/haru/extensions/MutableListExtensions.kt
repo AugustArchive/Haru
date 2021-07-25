@@ -22,6 +22,10 @@
 
 package dev.floofy.haru.extensions
 
+/**
+ * Operator for a [MutableList] plus assignment, but returns the [MutableList].
+ * @param other The other object to implement.
+ */
 operator fun <T> MutableList<T>.plus(other: List<T>): MutableList<T> {
     for (items in other)
         this.add(items)

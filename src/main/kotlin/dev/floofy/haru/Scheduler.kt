@@ -31,13 +31,33 @@ import dev.floofy.haru.builders.ScheduleBuilder
 import dev.floofy.haru.exceptions.UnknownJobException
 import dev.floofy.haru.extensions.*
 import java.util.concurrent.CancellationException
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
 import kotlinx.coroutines.*
 
 /**
- * Represents a [Scheduler] class to handle scheduling within this project.
- * @param options Any additional options
+ * Creates a new [Scheduler] as a DSL function with the [block] being
+ * a [Scheduler.Options] initializer.
+ *
+ * @param block The block to create this [Scheduler].
+ * @return This [Scheduler] object.
  */
-class Scheduler(private val options: Options) {
+@OptIn(ExperimentalContracts::class)
+fun Scheduler(block: Scheduler.Options.() -> Unit): Scheduler {
+    contract {
+        callsInPlace(block, InvocationKind.EXACTLY_ONCE)
+    }
+
+    val options = Scheduler.Options().apply(block)
+    return Scheduler(options)
+}
+
+/**
+ * Represents a [Scheduler] class to handle scheduling within this project.
+ * @param options Any additional options or it'll use the [default options][Options.Default]
+ */
+class Scheduler(private val options: Options = Options.Default) {
     private val scope: SchedulerScope = SchedulerScope(options)
     private val jobs: MutableList<AbstractJob> = mutableListOf()
     private val cron: CronParser = CronParser(CronDefinitionBuilder.instanceDefinitionFor(CronType.UNIX))
@@ -78,7 +98,12 @@ class Scheduler(private val options: Options) {
      * Schedules the job by a [builder][dev.floofy.haru.builders.ScheduleBuilder].
      * @param block The builder to construct this job.
      */
+    @OptIn(ExperimentalContracts::class)
     fun schedule(block: ScheduleBuilder.() -> Unit): Scheduler {
+        contract {
+            callsInPlace(block, InvocationKind.EXACTLY_ONCE)
+        }
+
         val builder = ScheduleBuilder().apply(block)
         val job = object: AbstractJob(name = builder.name, expression = builder.expression) {
             override suspend fun execute() = builder.executor()
@@ -129,5 +154,11 @@ class Scheduler(private val options: Options) {
          * have a `jobOnError` executor.
          */
         val errorHandler: ((Throwable) -> Unit)? = null
-    )
+    ) {
+        companion object {
+            val Default: Options = Options(
+                errorHandler = null
+            )
+        }
+    }
 }
