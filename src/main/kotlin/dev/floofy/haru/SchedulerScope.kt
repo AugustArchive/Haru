@@ -51,8 +51,7 @@ internal class SchedulerScope(private val options: Scheduler.Options): Coroutine
                 try {
                     job.execute()
                 } catch (e: Exception) {
-                    job.jobOnError(e)
-                    options.errorHandler?.invoke(e)
+                    options.errorHandler?.invoke(job, e)
                 }
 
                 val nextDelay = job.getAndUpdateNextDelay()

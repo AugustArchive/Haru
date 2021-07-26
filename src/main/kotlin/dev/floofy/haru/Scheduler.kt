@@ -27,6 +27,7 @@ import com.cronutils.model.definition.CronDefinitionBuilder
 import com.cronutils.model.time.ExecutionTime
 import com.cronutils.parser.CronParser
 import dev.floofy.haru.abstractions.AbstractJob
+import dev.floofy.haru.abstractions.toJob
 import dev.floofy.haru.builders.ScheduleBuilder
 import dev.floofy.haru.exceptions.UnknownJobException
 import dev.floofy.haru.extensions.*
@@ -105,9 +106,7 @@ class Scheduler(private val options: Options = Options.Default) {
         }
 
         val builder = ScheduleBuilder().apply(block)
-        val job = object: AbstractJob(name = builder.name, expression = builder.expression) {
-            override suspend fun execute() = builder.executor()
-        }
+        val job = builder.toJob()
 
         return schedule(job, start = builder.start)
     }
@@ -116,6 +115,7 @@ class Scheduler(private val options: Options = Options.Default) {
      * Unschedule and cancels the coroutine job attached to the [AbstractJob], if it was scheduled.
      * @param name The name of the job
      */
+    @Suppress("UNUSED")
     fun unschedule(name: String): Scheduler {
         val job = jobs.find { it.name == name } ?: throw UnknownJobException(name)
         return unschedule(job)
@@ -126,8 +126,6 @@ class Scheduler(private val options: Options = Options.Default) {
      * @param name The name of the job
      */
     fun unschedule(job: AbstractJob): Scheduler {
-        jobs.find { it.name == job.name } ?: throw UnknownJobException(job.name) // shouldn't get here but :shrug:
-
         job.coroutineJob?.cancel(CancellationException("Job was cancelled by Scheduler#unschedule(AbstractJob)"))
         jobs.remove(job)
         return this
@@ -136,6 +134,7 @@ class Scheduler(private val options: Options = Options.Default) {
     /**
      * Unschedules all jobs in this scheduler.
      */
+    @Suppress("UNUSED")
     fun unschedule(): Scheduler {
         for (job in jobs) {
             job.coroutineJob?.cancel(CancellationException("Job was cancelled by Scheduler#unschedule()"))
@@ -153,12 +152,25 @@ class Scheduler(private val options: Options = Options.Default) {
          * Returns a error handler for all scheduled jobs if that specific job doesn't
          * have a `jobOnError` executor.
          */
-        var errorHandler: ((Throwable) -> Unit)? = null
+        var errorHandler: ((AbstractJob, Throwable) -> Unit)? = null
     ) {
         companion object {
             val Default: Options = Options(
                 errorHandler = null
             )
+        }
+
+        /**
+         * Attaches a [handler] to the current [errorHandler] in this embedded
+         * [Options] context.
+         *
+         * @param handler The handler function to call
+         * @returns This [Options] object.
+         */
+        @Suppress("UNUSED")
+        fun handleError(handler: (AbstractJob, Throwable) -> Unit): Options {
+            errorHandler = handler
+            return this
         }
     }
 }

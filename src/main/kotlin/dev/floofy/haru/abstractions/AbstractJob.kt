@@ -23,8 +23,21 @@
 package dev.floofy.haru.abstractions
 
 import com.cronutils.model.time.ExecutionTime
+import dev.floofy.haru.builders.ScheduleBuilder
 import java.time.ZonedDateTime
 import kotlinx.coroutines.Job
+
+/**
+ * Converts a [ScheduleBuilder] instance to an [abstractable job][AbstractJob].
+ */
+fun ScheduleBuilder.toJob(): AbstractJob = object: AbstractJob(
+    name = this@toJob.name,
+    expression = this@toJob.expression
+) {
+    override suspend fun execute() {
+        this@toJob.executor()
+    }
+}
 
 /**
  * Represents an abstraction for constructing jobs. This is the Java-style
@@ -56,14 +69,6 @@ abstract class AbstractJob(val name: String, val expression: String) {
      * Executes this [AbstractJob] in a separate thread-pool.
      */
     abstract suspend fun execute()
-
-    /**
-     * Execute this function when this specific job errored out.
-     * @param throwable The error that occured
-     */
-    fun jobOnError(throwable: Throwable) {
-        // no-op operation
-    }
 
     /**
      * Updates the next delay and returns when the next delay is

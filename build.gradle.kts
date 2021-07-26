@@ -31,7 +31,7 @@ plugins {
     `maven-publish`
 }
 
-val current = "1.1.1"
+val current = "1.2.0"
 group = "dev.floofy"
 version = current
 
@@ -44,7 +44,7 @@ dependencies {
     // Kotlin libraries
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.0")
     api("org.jetbrains.kotlinx:kotlinx-coroutines-reactor:1.5.0")
-    implementation(kotlin("stdlib", "1.5.10"))
+    implementation(kotlin("stdlib", "1.5.21"))
 
     // Cron Support
     implementation("com.cronutils:cron-utils:9.1.5")

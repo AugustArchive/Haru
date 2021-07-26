@@ -1,6 +1,7 @@
 $dokka.format:html-v1
 $dokka.linkExtension:html
 $dokka.location:dev.floofy.haru.abstractions////PointingToDeclaration/-haru/dev.floofy.haru.abstractions/index.html
+$dokka.location:dev.floofy.haru.abstractions//toJob/dev.floofy.haru.builders.ScheduleBuilder#/PointingToDeclaration/-haru/dev.floofy.haru.abstractions/to-job.html
 $dokka.location:dev.floofy.haru.abstractions/AbstractJob///PointingToDeclaration/-haru/dev.floofy.haru.abstractions/-abstract-job/index.html
 $dokka.location:dev.floofy.haru.abstractions/AbstractJob/AbstractJob/#kotlin.String#kotlin.String/PointingToDeclaration/-haru/dev.floofy.haru.abstractions/-abstract-job/-abstract-job.html
 $dokka.location:dev.floofy.haru.abstractions/AbstractJob/coroutineJob/#/PointingToDeclaration/-haru/dev.floofy.haru.abstractions/-abstract-job/coroutine-job.html
@@ -8,7 +9,6 @@ $dokka.location:dev.floofy.haru.abstractions/AbstractJob/execute/#/PointingToDec
 $dokka.location:dev.floofy.haru.abstractions/AbstractJob/executionTime/#/PointingToDeclaration/-haru/dev.floofy.haru.abstractions/-abstract-job/execution-time.html
 $dokka.location:dev.floofy.haru.abstractions/AbstractJob/expression/#/PointingToDeclaration/-haru/dev.floofy.haru.abstractions/-abstract-job/expression.html
 $dokka.location:dev.floofy.haru.abstractions/AbstractJob/getAndUpdateNextDelay/#/PointingToDeclaration/-haru/dev.floofy.haru.abstractions/-abstract-job/get-and-update-next-delay.html
-$dokka.location:dev.floofy.haru.abstractions/AbstractJob/jobOnError/#kotlin.Throwable/PointingToDeclaration/-haru/dev.floofy.haru.abstractions/-abstract-job/job-on-error.html
 $dokka.location:dev.floofy.haru.abstractions/AbstractJob/name/#/PointingToDeclaration/-haru/dev.floofy.haru.abstractions/-abstract-job/name.html
 $dokka.location:dev.floofy.haru.abstractions/AbstractJob/nextDelay/#/PointingToDeclaration/-haru/dev.floofy.haru.abstractions/-abstract-job/next-delay.html
 $dokka.location:dev.floofy.haru.builders////PointingToDeclaration/-haru/dev.floofy.haru.builders/index.html
@@ -21,8 +21,6 @@ $dokka.location:dev.floofy.haru.builders/ScheduleBuilder/start/#/PointingToDecla
 $dokka.location:dev.floofy.haru.exceptions////PointingToDeclaration/-haru/dev.floofy.haru.exceptions/index.html
 $dokka.location:dev.floofy.haru.exceptions/UnknownJobException///PointingToDeclaration/-haru/dev.floofy.haru.exceptions/-unknown-job-exception/index.html
 $dokka.location:dev.floofy.haru.exceptions/UnknownJobException/UnknownJobException/#kotlin.String/PointingToDeclaration/-haru/dev.floofy.haru.exceptions/-unknown-job-exception/-unknown-job-exception.html
-$dokka.location:dev.floofy.haru.extensions////PointingToDeclaration/-haru/dev.floofy.haru.extensions/index.html
-$dokka.location:dev.floofy.haru.extensions//plus/kotlin.collections.MutableList[TypeParam(bounds=[kotlin.Any?])]#kotlin.collections.List[TypeParam(bounds=[kotlin.Any?])]/PointingToDeclaration/-haru/dev.floofy.haru.extensions/plus.html
 $dokka.location:dev.floofy.haru////PointingToDeclaration/-haru/dev.floofy.haru/index.html
 $dokka.location:dev.floofy.haru//Scheduler/#kotlin.Function1[dev.floofy.haru.Scheduler.Options,kotlin.Unit]/PointingToDeclaration/-haru/dev.floofy.haru/-scheduler.html
 $dokka.location:dev.floofy.haru/HaruInfo///PointingToDeclaration/-haru/dev.floofy.haru/-haru-info/index.html
@@ -31,8 +29,9 @@ $dokka.location:dev.floofy.haru/HaruInfo/VERSION/#/PointingToDeclaration/-haru/
 $dokka.location:dev.floofy.haru/Scheduler.Options.Companion///PointingToDeclaration/-haru/dev.floofy.haru/-scheduler/-options/-companion/index.html
 $dokka.location:dev.floofy.haru/Scheduler.Options.Companion/Default/#/PointingToDeclaration/-haru/dev.floofy.haru/-scheduler/-options/-companion/-default.html
 $dokka.location:dev.floofy.haru/Scheduler.Options///PointingToDeclaration/-haru/dev.floofy.haru/-scheduler/-options/index.html
-$dokka.location:dev.floofy.haru/Scheduler.Options/Options/#kotlin.Function1[kotlin.Throwable,kotlin.Unit]?/PointingToDeclaration/-haru/dev.floofy.haru/-scheduler/-options/-options.html
+$dokka.location:dev.floofy.haru/Scheduler.Options/Options/#kotlin.Function2[dev.floofy.haru.abstractions.AbstractJob,kotlin.Throwable,kotlin.Unit]?/PointingToDeclaration/-haru/dev.floofy.haru/-scheduler/-options/-options.html
 $dokka.location:dev.floofy.haru/Scheduler.Options/errorHandler/#/PointingToDeclaration/-haru/dev.floofy.haru/-scheduler/-options/error-handler.html
+$dokka.location:dev.floofy.haru/Scheduler.Options/handleError/#kotlin.Function2[dev.floofy.haru.abstractions.AbstractJob,kotlin.Throwable,kotlin.Unit]/PointingToDeclaration/-haru/dev.floofy.haru/-scheduler/-options/handle-error.html
 $dokka.location:dev.floofy.haru/Scheduler///PointingToDeclaration/-haru/dev.floofy.haru/-scheduler/index.html
 $dokka.location:dev.floofy.haru/Scheduler/Scheduler/#dev.floofy.haru.Scheduler.Options/PointingToDeclaration/-haru/dev.floofy.haru/-scheduler/-scheduler.html
 $dokka.location:dev.floofy.haru/Scheduler/schedule/#dev.floofy.haru.abstractions.AbstractJob#kotlin.Boolean/PointingToDeclaration/-haru/dev.floofy.haru/-scheduler/schedule.html
@@ -44,5 +43,4 @@ dev.floofy.haru
 dev.floofy.haru.abstractions
 dev.floofy.haru.builders
 dev.floofy.haru.exceptions
-dev.floofy.haru.extensions
 
