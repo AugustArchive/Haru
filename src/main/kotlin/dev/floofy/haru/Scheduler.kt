@@ -153,7 +153,7 @@ class Scheduler(private val options: Options = Options.Default) {
          * Returns a error handler for all scheduled jobs if that specific job doesn't
          * have a `jobOnError` executor.
          */
-        val errorHandler: ((Throwable) -> Unit)? = null
+        var errorHandler: ((Throwable) -> Unit)? = null
     ) {
         companion object {
             val Default: Options = Options(

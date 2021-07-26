@@ -31,7 +31,7 @@ plugins {
     `maven-publish`
 }
 
-val current = "1.1.0"
+val current = "1.1.1"
 group = "dev.floofy"
 version = current
 
