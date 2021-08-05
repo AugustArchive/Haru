@@ -64,7 +64,7 @@ class Scheduler(private val options: Options = Options.Default) {
     private val cron: CronParser = CronParser(CronDefinitionBuilder.instanceDefinitionFor(CronType.UNIX))
 
     private val AT_EXPRESSIONS: Map<String, String> = mapOf(
-        "@hourly" to "0 * * * *",
+        "@daily" to "0 0 * * *",
         "@yearly" to "0 0 1 1 *",
         "@annually" to "0 0 1 1 *",
         "@monthly" to "0 0 1 * *",
