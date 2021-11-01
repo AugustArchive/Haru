@@ -26,7 +26,7 @@ import java.util.Date
 
 plugins {
     id("com.diffplug.spotless") version "5.14.0"
-    id("org.jetbrains.dokka") version "1.4.30"
+    id("org.jetbrains.dokka") version "1.5.31"
     kotlin("jvm") version "1.5.10"
     `maven-publish`
 }
