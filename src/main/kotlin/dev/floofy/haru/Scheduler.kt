@@ -30,12 +30,11 @@ import dev.floofy.haru.abstractions.AbstractJob
 import dev.floofy.haru.abstractions.toJob
 import dev.floofy.haru.builders.ScheduleBuilder
 import dev.floofy.haru.exceptions.UnknownJobException
-import dev.floofy.haru.extensions.*
+import kotlinx.coroutines.*
 import java.util.concurrent.CancellationException
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
-import kotlinx.coroutines.*
 
 /**
  * Creates a new [Scheduler] as a DSL function with the [block] being
@@ -122,6 +121,17 @@ class Scheduler(private val options: Options = Options.Default) {
     }
 
     /**
+     * Appends all [jobs] specified into the [Scheduler] tree.
+     * @param jobs The jobs to schedule
+     * @param start If the jobs should be started.
+     * @return This [Scheduler] instance.
+     */
+    fun bulkSchedule(vararg jobs: AbstractJob, start: Boolean = true): Scheduler {
+        for (job in jobs) schedule(job, start)
+        return this
+    }
+
+    /**
      * Unschedule and cancels the coroutine job attached to the [AbstractJob], if it was scheduled.
      * @param name The name of the job
      */
@@ -149,7 +159,7 @@ class Scheduler(private val options: Options = Options.Default) {
      */
     data class Options(
         /**
-         * Returns a error handler for all scheduled jobs if that specific job doesn't
+         * Returns an error handler for all scheduled jobs if that specific job doesn't
          * have a `jobOnError` executor.
          */
         var errorHandler: ((AbstractJob, Throwable) -> Unit)? = null

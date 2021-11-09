@@ -34,6 +34,7 @@ $dokka.location:dev.floofy.haru/Scheduler.Options/errorHandler/#/PointingToDecla
 $dokka.location:dev.floofy.haru/Scheduler.Options/handleError/#kotlin.Function2[dev.floofy.haru.abstractions.AbstractJob,kotlin.Throwable,kotlin.Unit]/PointingToDeclaration/-haru/dev.floofy.haru/-scheduler/-options/handle-error.html
 $dokka.location:dev.floofy.haru/Scheduler///PointingToDeclaration/-haru/dev.floofy.haru/-scheduler/index.html
 $dokka.location:dev.floofy.haru/Scheduler/Scheduler/#dev.floofy.haru.Scheduler.Options/PointingToDeclaration/-haru/dev.floofy.haru/-scheduler/-scheduler.html
+$dokka.location:dev.floofy.haru/Scheduler/bulkSchedule/#kotlin.Array[dev.floofy.haru.abstractions.AbstractJob]#kotlin.Boolean/PointingToDeclaration/-haru/dev.floofy.haru/-scheduler/bulk-schedule.html
 $dokka.location:dev.floofy.haru/Scheduler/schedule/#dev.floofy.haru.abstractions.AbstractJob#kotlin.Boolean/PointingToDeclaration/-haru/dev.floofy.haru/-scheduler/schedule.html
 $dokka.location:dev.floofy.haru/Scheduler/schedule/#kotlin.Function1[dev.floofy.haru.builders.ScheduleBuilder,kotlin.Unit]/PointingToDeclaration/-haru/dev.floofy.haru/-scheduler/schedule.html
 $dokka.location:dev.floofy.haru/Scheduler/unschedule/#/PointingToDeclaration/-haru/dev.floofy.haru/-scheduler/unschedule.html

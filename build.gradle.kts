@@ -25,13 +25,13 @@ import java.util.Properties
 import java.util.Date
 
 plugins {
-    id("com.diffplug.spotless") version "5.14.0"
+    id("com.diffplug.spotless") version "6.0.0"
     id("org.jetbrains.dokka") version "1.5.31"
-    kotlin("jvm") version "1.5.10"
+    kotlin("jvm") version "1.5.31"
     `maven-publish`
 }
 
-val current = "1.2.0"
+val current = "1.3.0"
 group = "dev.floofy"
 version = current
 
@@ -42,9 +42,9 @@ repositories {
 
 dependencies {
     // Kotlin libraries
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2")
-    api("org.jetbrains.kotlinx:kotlinx-coroutines-reactor:1.5.2")
-    implementation(kotlin("stdlib", "1.5.21"))
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2-native-mt")
+    api("org.jetbrains.kotlinx:kotlinx-coroutines-reactor:1.5.2-native-mt")
+    implementation(kotlin("stdlib", "1.5.31"))
 
     // Cron Support
     implementation("com.cronutils:cron-utils:9.1.5")

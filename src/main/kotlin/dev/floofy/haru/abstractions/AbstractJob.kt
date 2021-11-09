@@ -24,11 +24,11 @@ package dev.floofy.haru.abstractions
 
 import com.cronutils.model.time.ExecutionTime
 import dev.floofy.haru.builders.ScheduleBuilder
-import java.time.ZonedDateTime
 import kotlinx.coroutines.Job
+import java.time.ZonedDateTime
 
 /**
- * Converts a [ScheduleBuilder] instance to an [abstractable job][AbstractJob].
+ * Converts a [ScheduleBuilder] instance to an [abstract-able job][AbstractJob].
  */
 fun ScheduleBuilder.toJob(): AbstractJob = object: AbstractJob(
     name = this@toJob.name,

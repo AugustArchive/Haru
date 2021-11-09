@@ -5,6 +5,8 @@
 I built this library as a personal usage library to handling schedulers within the applications
 I am creating, and it'll be easier if I put it in a library that I can reuse.
 
+I currently use **Haru** with my private Discord bot, Noel.
+
 ## Usage
 ```kotlin
 class MyJob: AbstractJob(
@@ -44,7 +46,7 @@ I'd say around ~3 hours :)
 ## Installation
 > Documentation: https://haru.floofy.dev
 >
-> Version: 1.2.0
+> Version: 1.3.0
 
 ## Gradle
 ### Kotlin DSL
