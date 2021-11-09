@@ -1,0 +1,35 @@
+name: Release a new version
+on:
+  release:
+    types:
+      - published
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Setup Java 16
+        uses: actions/setup-java@v2
+        with:
+          distribution: adopt # AdoptOpenJDK is <3
+          java-version: 16
+
+      - name: Setup Gradle cache
+        uses: actions/cache@v2.1.6
+        with:
+          path: ~/.gradle/caches
+          key: ${{ runner.os }}-test-gradle-${{ hashFiles('**/*.gradle*') }}
+          restore-keys: |
+            ${{ runner.os }}-test-gradle-
+
+      - name: Lets ./gradlew be executable
+        run: chmod +x ./gradlew
+
+      - name: Apply publishing properties
+        run: |
+          echo "${{ secrets.PUBLISHING_KEYS }}" >> gradle/publishing.properties
+
+      - name: Publish to S3 bucket
+        run: ./gradlew publish -Dorg.gradle.s3.endpoint=https://s3.wasabisys.com
