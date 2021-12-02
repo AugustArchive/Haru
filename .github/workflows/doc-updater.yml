@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
   schedule:
     - cron: '* */12 * * *'
-steps:
+jobs:
   update-docs:
     runs-on: ubuntu-latest
     steps:
@@ -24,21 +24,18 @@ steps:
           restore-keys: |
             ${{ runner.os }}-test-gradle-
             
-       - name: Make ./gradlew executable
-         run: chmod +x ./gradlew
-         
-       - name: Generate documentation
-         run: rm -rf docs && ./gradlew dokkaHtml
+      - name: Make gradlew executable
+        run: chmod +x ./gradlew
         
-       - name: Add CNAME back to ./docs
-         run: echo "haru.floofy.dev" >> docs/CNAME
-         
-       - name: Setup Git configuration
-         run: |
-            git config --global user.name 'Noel[bot]'
-            git config --global user.email 'ohlookitsaugust@gmail.com'
-            
-        - name: Commit sources
-          run: |
-            git commit -am "chore(docs): update docs :3"
-            git push -u origin master
+      - name: Generdate documentation
+        run: rm -rf docs && ./gradlew dokkaHtml && echo "haru.floofy.dev" >> docs/CNAME
+        
+      - name: Setup Git configuration
+        run: |
+          git config --global user.name 'Noel[bot]'
+          git config --global user.email 'ohlookitsaugust@gmail.com'
+          
+      - name: Commit sources
+        run: |
+          git commit -am "chore(docs): update docs"
+          git push -u origin master
