@@ -13,7 +13,7 @@ jobs:
       - name: Setup Java 17
         uses: actions/setup-java@v2
         with:
-          distribution: adoptopenjdk
+          distribution: adopt
           java-version: 17
 
       - name: Setup Gradle cache
