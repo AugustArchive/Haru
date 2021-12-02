@@ -1,0 +1,44 @@
+name: Update documentation every 12 hours
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '* */12 * * *'
+steps:
+  update-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        
+      - name: Setup Java 17
+        uses: actions/setup-java@v2
+        with:
+          distribution: adoptopenjdk
+          java-version: 17
+
+      - name: Setup Gradle cache
+        uses: actions/cache@v2.1.7
+        with:
+          path: ~/.gradle/caches
+          key: ${{ runner.os }}-test-gradle-${{ hashFiles('**/*.gradle*') }}
+          restore-keys: |
+            ${{ runner.os }}-test-gradle-
+            
+       - name: Make ./gradlew executable
+         run: chmod +x ./gradlew
+         
+       - name: Generate documentation
+         run: rm -rf docs && ./gradlew dokkaHtml
+        
+       - name: Add CNAME back to ./docs
+         run: echo "haru.floofy.dev" >> docs/CNAME
+         
+       - name: Setup Git configuration
+         run: |
+            git config --global user.name 'Noel[bot]'
+            git config --global user.email 'ohlookitsaugust@gmail.com'
+            
+        - name: Commit sources
+          run: |
+            git commit -am "chore(docs): update docs :3"
+            git push -u origin master
