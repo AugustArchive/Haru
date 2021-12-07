@@ -45,7 +45,7 @@ jobs:
           echo "::set-output name=dirty::$FILES_MODIFIED"
           
       - name: Commit sources
-        if: ${{ contains(steps.dirty.outputs.dirty, "") }}
+        if: contains(steps.dirty.outputs.dirty, "")
         run: |
           git add .
           git commit -m "chore(docs): update docs"
