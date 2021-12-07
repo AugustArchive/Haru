@@ -2,7 +2,7 @@ name: Update documentation every 12 hours
 on:
   workflow_dispatch:
   schedule:
-    - cron: '* */12 * * *'
+    - cron: '0 0 * * *'
 jobs:
   update-docs:
     runs-on: ubuntu-latest
@@ -37,7 +37,15 @@ jobs:
           git config --global committer.email 'ohlookitsaugust@gmail.com'
           git config --global committer.name 'Noel[bot]'
           
+      - name: Check if git status is dirty
+        id: dirty
+        run: |
+          IS_DIRTY=$(git status --porcelain)
+          echo "$IS_DIRTY"
+          echo "::set-output name=dirty::$FILES_MODIFIED"
+          
       - name: Commit sources
+        if: ${{ contains(steps.dirty.outputs.dirty, "") }}
         run: |
           git add .
           git commit -m "chore(docs): update docs"
