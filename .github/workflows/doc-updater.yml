@@ -27,7 +27,7 @@ jobs:
       - name: Make gradlew executable
         run: chmod +x ./gradlew
         
-      - name: Generdate documentation
+      - name: Generate documentation
         run: rm -rf docs && ./gradlew dokkaHtml && echo "haru.floofy.dev" >> docs/CNAME
         
       - name: Setup Git configuration
@@ -38,15 +38,20 @@ jobs:
           git config --global committer.name 'Noel[bot]'
           
       - name: Check if git status is dirty
-        id: dirty
+        id: git_status
         run: |
-          IS_DIRTY=$(git status --porcelain)
-          echo "$IS_DIRTY"
-          echo "::set-output name=dirty::$FILES_MODIFIED"
+          if [ -n "$(git status --porcelain)" ]; then
+              echo '::set-output name=STATUS_DIRTY::true'
+          else
+            echo '::set-output name=STATUS_DIRTY::false'
+          fi
+      - name: Commit changes (if dirty)
+        if: contains(steps.git_status.outputs.STATUS_DIRTY, 'true')
+        run: |
+          git config --global user.name "Noel[bot]"
+          git config --global user.email "ohlookitsaugust@gmail.com"
           
-      - name: Commit sources
-        if: contains(steps.dirty.outputs.dirty, '')
-        run: |
           git add .
-          git commit -m "chore(docs): update docs"
+          git commit -m "docs: up to date."
           git push -u origin master
+
