@@ -50,7 +50,7 @@ dependencies {
     implementation("com.cronutils:cron-utils:9.1.6")
 
     // SLF4J Logger
-    api("org.slf4j:slf4j-api:1.7.32")
+    api("org.slf4j:slf4j-api:1.7.33")
 }
 
 tasks.register("generateMetadata") {
