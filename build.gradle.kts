@@ -43,7 +43,7 @@ repositories {
 dependencies {
     // Kotlin libraries
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.2")
-    api("org.jetbrains.kotlinx:kotlinx-coroutines-reactor:1.6.1")
+    api("org.jetbrains.kotlinx:kotlinx-coroutines-reactor:1.6.2")
     implementation(kotlin("stdlib", "1.5.31"))
 
     // Cron Support
