@@ -1,5 +1,4 @@
 /*
- * 🚟 Haru (春): Lightweight, and simple scheduling library made for Kotlin (JVM, JS, and Native)
  * Copyright (c) 2021-2022 Noel <cutie@floofy.dev>
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -21,12 +20,3 @@
  * SOFTWARE.
  */
 
-rootProject.name = "Haru"
-
-include(
-    ":cron-scheduler",
-    ":time-scheduler",
-    ":examples:jvm",
-    ":examples:js",
-    ":examples:native"
-)

@@ -21,12 +21,38 @@
  * SOFTWARE.
  */
 
-rootProject.name = "Haru"
+import dev.floofy.utils.gradle.*
 
-include(
-    ":cron-scheduler",
-    ":time-scheduler",
-    ":examples:jvm",
-    ":examples:js",
-    ":examples:native"
-)
+plugins {
+    kotlin("multiplatform")
+}
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+    noel()
+}
+
+kotlin {
+    jvm {
+        compilations.all {
+            kotlinOptions.freeCompilerArgs += listOf("-opt-in=kotlin.RequiresOptIn")
+            kotlinOptions.javaParameters = true
+            kotlinOptions.jvmTarget = dev.floofy.haru.gradle.JAVA_VERSION.toString()
+        }
+    }
+
+    sourceSets {
+        val commonMain by getting {
+            dependencies {
+                api(project(":cron-scheduler"))
+            }
+        }
+
+        val jvmMain by getting {
+            dependencies {
+                api(project(":cron-scheduler"))
+            }
+        }
+    }
+}

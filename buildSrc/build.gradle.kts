@@ -21,12 +21,20 @@
  * SOFTWARE.
  */
 
-rootProject.name = "Haru"
+plugins {
+    `kotlin-dsl`
+    groovy
+}
 
-include(
-    ":cron-scheduler",
-    ":time-scheduler",
-    ":examples:jvm",
-    ":examples:js",
-    ":examples:native"
-)
+repositories {
+    maven("https://maven.floofy.dev/repo/releases")
+    gradlePluginPortal()
+    mavenCentral()
+}
+
+dependencies {
+    implementation("com.diffplug.spotless:spotless-plugin-gradle:6.8.0")
+    implementation("org.jetbrains.dokka:dokka-gradle-plugin:1.7.0")
+    implementation("dev.floofy.commons:gradle:2.1.1")
+    implementation(kotlin("gradle-plugin", "1.7.0"))
+}

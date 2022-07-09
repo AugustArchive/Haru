@@ -21,12 +21,32 @@
  * SOFTWARE.
  */
 
-rootProject.name = "Haru"
+plugins {
+    kotlin("multiplatform")
+}
 
-include(
-    ":cron-scheduler",
-    ":time-scheduler",
-    ":examples:jvm",
-    ":examples:js",
-    ":examples:native"
-)
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+kotlin {
+    js(IR) {
+        nodejs()
+        binaries.executable()
+    }
+
+    sourceSets {
+        val commonMain by getting {
+            dependencies {
+                api(project(":cron-scheduler"))
+            }
+        }
+
+        val jsMain by getting {
+            dependencies {
+                api(project(":cron-scheduler"))
+            }
+        }
+    }
+}

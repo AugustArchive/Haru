@@ -21,12 +21,7 @@
  * SOFTWARE.
  */
 
-rootProject.name = "Haru"
-
-include(
-    ":cron-scheduler",
-    ":time-scheduler",
-    ":examples:jvm",
-    ":examples:js",
-    ":examples:native"
-)
+plugins {
+    `haru-library`
+    `haru-publish`
+}
