@@ -47,7 +47,7 @@ dependencies {
     implementation(kotlin("stdlib", "1.5.31"))
 
     // Cron Support
-    implementation("com.cronutils:cron-utils:9.1.8")
+    implementation("com.cronutils:cron-utils:9.2.0")
 
     // SLF4J Logger
     api("org.slf4j:slf4j-api:1.7.36")
