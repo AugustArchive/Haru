@@ -6,10 +6,18 @@
     <link href="../../../images/logo-icon.svg" rel="icon" type="image/svg">
     <script>var pathToRoot = "../../../";</script>
     <script>const storage = localStorage.getItem("dokka-dark-mode")
-const savedDarkMode = storage ? JSON.parse(storage) : false
-if(savedDarkMode === true){
-    document.getElementsByTagName("html")[0].classList.add("theme-dark")
-}</script>
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
 <script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async="async"></script>
 <link href="../../../styles/style.css" rel="Stylesheet">
 <link href="../../../styles/jetbrains-mono.css" rel="Stylesheet">
@@ -21,6 +29,7 @@ if(savedDarkMode === true){
 <script type="text/javascript" src="../../../scripts/platform-content-handler.js" async="async"></script>
 <script type="text/javascript" src="../../../scripts/main.js" defer="defer"></script>
 <script type="text/javascript" src="../../../scripts/prism.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer="defer"></script>
 </head>
 <body>
 <div class="navigation-wrapper" id="navigation-wrapper">
@@ -43,13 +52,13 @@ if(savedDarkMode === true){
     </div>
     <div id="main">
 <div class="main-content" id="content" pageIds="Haru::dev.floofy.haru.builders/ScheduleBuilder///PointingToDeclaration//769193423">
-  <div class="breadcrumbs"><a href="../../../index.html">Haru</a><span class="delimiter">/</span><a href="../index.html">dev.floofy.haru.builders</a><span class="delimiter">/</span><a href="index.html">ScheduleBuilder</a></div>
+  <div class="breadcrumbs"><a href="../../../index.html">Haru</a><span class="delimiter">/</span><a href="../index.html">dev.floofy.haru.builders</a><span class="delimiter">/</span><span class="current">ScheduleBuilder</span></div>
   <div class="cover ">
     <h1 class="cover"><span>Schedule</span><wbr></wbr><span><span>Builder</span></span></h1>
-    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":dokkaHtml/main"><div class="symbol monospace"><span class="token keyword">class </span><a href="index.html">ScheduleBuilder</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><p class="paragraph">Represents a builder class to construct <a href="../../dev.floofy.haru.abstractions/-abstract-job/index.html">AbstractJob</a>s.</p></div></div>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":dokkaHtml/main"><div class="symbol monospace"><span class="token keyword">class </span><a href="index.html">ScheduleBuilder</a><span class="clearfix"><span class="floating-right">(<a href="https://github.com/auguwu/Haru/tree/master/src/main/kotlin/dev/floofy/haru/builders/ScheduleBuilder.kt#L30">source</a>)</span></span></div><p class="paragraph">Represents a builder class to construct <a href="../../dev.floofy.haru.abstractions/-abstract-job/index.html">AbstractJob</a>s.</p></div></div>
   </div>
   <div class="tabbedcontent">
-    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="Constructors">Constructors</button><button class="section-tab" data-togglable="Properties">Properties</button><button class="section-tab" data-togglable="Extensions">Extensions</button><button class="section-tab" data-togglable="Sources">Sources</button></div>
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="Constructors">Constructors</button><button class="section-tab" data-togglable="Properties">Properties</button><button class="section-tab" data-togglable="Extensions">Extensions</button></div>
     <div class="tabs-section-body">
       <h2 class="tabbedcontent">Constructors</h2>
       <div class="table" data-togglable="Constructors"><a data-name="-1765022043%2FConstructors%2F769193423" anchor-label="ScheduleBuilder" id="-1765022043%2FConstructors%2F769193423" data-filterable-set=":dokkaHtml/main"></a>
@@ -62,7 +71,7 @@ if(savedDarkMode === true){
                 </span></span></div>
             <div>
               <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":dokkaHtml/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="-schedule-builder.html"><span class="token function">ScheduleBuilder</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":dokkaHtml/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="-schedule-builder.html"><span class="token function">ScheduleBuilder</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div></div></div>
               </div>
             </div>
           </div>
@@ -79,7 +88,7 @@ if(savedDarkMode === true){
                 </span></span></div>
             <div>
               <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-depenent-content" data-active="" data-togglable=":dokkaHtml/main"><a data-name="2096360574%2FProperties%2F769193423" anchor-label="executor" id="2096360574%2FProperties%2F769193423" data-filterable-set=":dokkaHtml/main"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">var </span><a href="executor.html">executor</a><span class="token operator">: </span><span data-unresolved-link="dev.floofy.haru.builders/ScheduleExecutor///PointingToDeclaration/">ScheduleExecutor</span><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><div class="brief "><a data-name="2096360574%2FProperties%2F769193423" anchor-label="executor" id="2096360574%2FProperties%2F769193423" data-filterable-set=":dokkaHtml/main"></a><p class="paragraph">Returns the executor to execute this scheduler.</p></div></div></div>
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":dokkaHtml/main"><a data-name="2096360574%2FProperties%2F769193423" anchor-label="executor" id="2096360574%2FProperties%2F769193423" data-filterable-set=":dokkaHtml/main"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">var </span><a href="executor.html">executor</a><span class="token operator">: </span><span data-unresolved-link="dev.floofy.haru.builders/ScheduleExecutor///PointingToDeclaration/">ScheduleExecutor</span></div><div class="brief "><a data-name="2096360574%2FProperties%2F769193423" anchor-label="executor" id="2096360574%2FProperties%2F769193423" data-filterable-set=":dokkaHtml/main"></a><p class="paragraph">Returns the executor to execute this scheduler.</p></div></div></div>
               </div>
             </div>
           </div>
@@ -94,7 +103,7 @@ if(savedDarkMode === true){
                 </span></span></div>
             <div>
               <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-depenent-content" data-active="" data-togglable=":dokkaHtml/main"><a data-name="240299353%2FProperties%2F769193423" anchor-label="expression" id="240299353%2FProperties%2F769193423" data-filterable-set=":dokkaHtml/main"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">var </span><a href="expression.html">expression</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><div class="brief "><a data-name="240299353%2FProperties%2F769193423" anchor-label="expression" id="240299353%2FProperties%2F769193423" data-filterable-set=":dokkaHtml/main"></a><p class="paragraph">The expression to use when scheduling this job. This supports full Unix CRON expressions like <code class="lang-kotlin">@hourly</code>!</p></div></div></div>
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":dokkaHtml/main"><a data-name="240299353%2FProperties%2F769193423" anchor-label="expression" id="240299353%2FProperties%2F769193423" data-filterable-set=":dokkaHtml/main"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">var </span><a href="expression.html">expression</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><a data-name="240299353%2FProperties%2F769193423" anchor-label="expression" id="240299353%2FProperties%2F769193423" data-filterable-set=":dokkaHtml/main"></a><p class="paragraph">The expression to use when scheduling this job. This supports full Unix CRON expressions like <code class="lang-kotlin">@hourly</code>!</p></div></div></div>
               </div>
             </div>
           </div>
@@ -109,7 +118,7 @@ if(savedDarkMode === true){
                 </span></span></div>
             <div>
               <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-depenent-content" data-active="" data-togglable=":dokkaHtml/main"><a data-name="-711162938%2FProperties%2F769193423" anchor-label="name" id="-711162938%2FProperties%2F769193423" data-filterable-set=":dokkaHtml/main"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">var </span><a href="name.html">name</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><div class="brief "><a data-name="-711162938%2FProperties%2F769193423" anchor-label="name" id="-711162938%2FProperties%2F769193423" data-filterable-set=":dokkaHtml/main"></a><p class="paragraph">The name of the job</p></div></div></div>
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":dokkaHtml/main"><a data-name="-711162938%2FProperties%2F769193423" anchor-label="name" id="-711162938%2FProperties%2F769193423" data-filterable-set=":dokkaHtml/main"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">var </span><a href="name.html">name</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><a data-name="-711162938%2FProperties%2F769193423" anchor-label="name" id="-711162938%2FProperties%2F769193423" data-filterable-set=":dokkaHtml/main"></a><p class="paragraph">The name of the job</p></div></div></div>
               </div>
             </div>
           </div>
@@ -124,7 +133,7 @@ if(savedDarkMode === true){
                 </span></span></div>
             <div>
               <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-depenent-content" data-active="" data-togglable=":dokkaHtml/main"><a data-name="-255377433%2FProperties%2F769193423" anchor-label="start" id="-255377433%2FProperties%2F769193423" data-filterable-set=":dokkaHtml/main"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">var </span><a href="start.html">start</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator"> = </span><span class="token boolean">true</span><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><div class="brief "><a data-name="-255377433%2FProperties%2F769193423" anchor-label="start" id="-255377433%2FProperties%2F769193423" data-filterable-set=":dokkaHtml/main"></a><p class="paragraph">If the job should be started automatically or not.</p></div></div></div>
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":dokkaHtml/main"><a data-name="-255377433%2FProperties%2F769193423" anchor-label="start" id="-255377433%2FProperties%2F769193423" data-filterable-set=":dokkaHtml/main"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">var </span><a href="start.html">start</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator"> = </span><span class="token boolean">true</span></div><div class="brief "><a data-name="-255377433%2FProperties%2F769193423" anchor-label="start" id="-255377433%2FProperties%2F769193423" data-filterable-set=":dokkaHtml/main"></a><p class="paragraph">If the job should be started automatically or not.</p></div></div></div>
               </div>
             </div>
           </div>
@@ -141,22 +150,9 @@ if(savedDarkMode === true){
                 </span></span></div>
             <div>
               <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":dokkaHtml/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="index.html">ScheduleBuilder</a><span class="token punctuation">.</span><a href="../../dev.floofy.haru.abstractions/to-job.html"><span class="token function">toJob</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../dev.floofy.haru.abstractions/-abstract-job/index.html">AbstractJob</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><div class="brief "><p class="paragraph">Converts a <a href="index.html">ScheduleBuilder</a> instance to an <a href="../../dev.floofy.haru.abstractions/-abstract-job/index.html">abstract-able job</a>.</p></div></div></div>
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":dokkaHtml/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="index.html">ScheduleBuilder</a><span class="token punctuation">.</span><a href="../../dev.floofy.haru.abstractions/to-job.html"><span class="token function">toJob</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../dev.floofy.haru.abstractions/-abstract-job/index.html">AbstractJob</a></div><div class="brief "><p class="paragraph">Converts a <a href="index.html">ScheduleBuilder</a> instance to an <a href="../../dev.floofy.haru.abstractions/-abstract-job/index.html">abstract-able job</a>.</p></div></div></div>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-      <h2 class="">Sources</h2>
-      <div class="table" data-togglable="Sources"><a data-name="-2130974130%2FSource%2F769193423" anchor-label="https://github.com/auguwu/Haru/tree/master/src/main/kotlin/dev/floofy/haru/builders/ScheduleBuilder.kt#L30" id="-2130974130%2FSource%2F769193423" data-filterable-set=":dokkaHtml/main"></a>
-        <div class="table-row" data-filterable-current=":dokkaHtml/main" data-filterable-set=":dokkaHtml/main">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="https://github.com/auguwu/Haru/tree/master/src/main/kotlin/dev/floofy/haru/builders/ScheduleBuilder.kt#L30">jvm source</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2130974130%2FSource%2F769193423"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div></div>
           </div>
         </div>
       </div>
