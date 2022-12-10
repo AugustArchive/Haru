@@ -44,7 +44,7 @@ dependencies {
     // Kotlin libraries
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
     api("org.jetbrains.kotlinx:kotlinx-coroutines-reactor:1.6.4")
-    implementation(kotlin("stdlib", "1.5.31"))
+    implementation(kotlin("stdlib", "1.7.22"))
 
     // Cron Support
     implementation("com.cronutils:cron-utils:9.2.0")
