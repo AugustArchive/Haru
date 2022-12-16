@@ -1,3 +1,6 @@
+# WARNING
+Haru will be merged into a new project soon.
+
 # Haru
 > 🚟 **Lightweight, and simple scheduling library made for Kotlin (JVM)**
 
